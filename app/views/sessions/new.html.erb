@@ -5,9 +5,16 @@
   <center><img src="<%= image_path("hello.png")%>"></center> 
  
   <div class="column">
+    <% flash.each do |type, msg| %>
+  <div class="errors">
+  <ul>
+    <li><%= msg %></li>
+</ul>
+  </div>
+<% end %>
     <div class="card">
     <table>
-    <%= form_for @user do |f|%>
+    <%= form_with(model: @user, url:'/login', local: true) do |f|%>
     <tr>
         <td align="center" colspan="2"><h1>Local Login</h1></td>
     </tr>
@@ -20,7 +27,7 @@
     </tr>
     <tr>
         <td align="right"><%= f.label "Password:"%></td>
-        <td align="right"><%= f.password_field name="email"%></td>
+        <td align="right"><%= f.password_field name="password"%></td>
     </tr>
     <tr>
         <td></td>
@@ -30,7 +37,9 @@
     </table>
     </div>
     <br>
-    <div class="card">Login with Github</div>
+    <div class="card"> 
+    <div><img src="<%= image_path("GitHub-Mark-32px.png")%>"> <%= link_to 'Sign in with GitHub', '/auth/github'%>
+    </div>
   </div>
 </div>
 

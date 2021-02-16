@@ -1,11 +1,8 @@
-<div class="row"> 
-  <center><img src="<%= image_path("hello.png")%>" ></center> 
- 
-  <div class="column">
-  <div class="card-header" align="center">Local Signup</div><br>
+ <div class="card-header" align="center">User Show</div><br>
+ <div class="column">
     <div class="card">
     <table>
-    <%= form_with(model: @user, url:'/signup', local: true) do |f|%>
+    <%= form_for(@user) do |f|%>
     <tr>
         <td align="right"><%= f.label "First Name:"%></td>
         <td align="right"><%= f.text_field name="first_name"%></td>
@@ -19,10 +16,6 @@
         <td align="right"><%= f.email_field name="email"%></td>
     </tr>
     <tr>
-        <td align="right"><%= f.label "Password:"%></td>
-        <td align="right"><%= f.password_field name="password"%></td>
-    </tr>
-    <tr>
         <td align="right"><%= f.label "Age:"%></td>
         <td align="right"><%= f.number_field name="age"%></td>
     </tr>
@@ -32,11 +25,11 @@
     </tr>
     <tr>
         <td></td>
-        <td align="right"><br><%= f.submit "Sign up"%></td>
+        <td align="right"><br><%= f.submit "Update"%></td>
     </tr>
     <%end%>
     </table>
     </div>
     
   </div>
-</div>
+</div>   
