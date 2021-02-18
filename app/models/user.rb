@@ -1,6 +1,7 @@
 class User < ApplicationRecord
     has_many :walks
     has_many :dogs, through: :walks
+    has_many :owned_dogs, foreign_key: "owner_id", class_name: "Dog"
 
     has_secure_password
 

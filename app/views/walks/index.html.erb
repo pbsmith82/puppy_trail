@@ -1,2 +1,31 @@
-<div class="card-header" align="center">Walks Index</div><br>   
-<p>Find me in app/views/walks/index.html.erb</p>
+<div class="card-header" align="center">
+<% if @dog%>
+<%= @dog.name %>'s Walks 
+<%else%> 
+All Walks
+<%end%> </div><br>  
+<div class="container">
+<div class="row row-cols-5"> 
+<% @walks.each do |walk| %>
+<div class="col">
+    Walk ID: <%= walk.id%><br>
+    Dog: <%= walk.dogs_name %> <br>
+    Distance: <%= walk.distance %> mile(s) <br>
+    Was Dog Watered: <%= walk.watered %><br>
+    Was Dog Fed: <%= walk.fed %><br>
+    Dog Walker: <%= walk.walkers_name %><br>
+    <br>
+    <% if walk.user_id == current_user.id%> 
+    <a class="btn btn-primary btn-sm ml-1"href="<%= edit_walk_path(walk) %>" role="button">Update Walk Details</a>
+    <% end %>
+    <br>
+    <br>
+    </div>
+    <% end %>
+    </div>
+    </div>
+<br>
+
+
+
+

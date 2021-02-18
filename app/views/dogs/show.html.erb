@@ -1,2 +1,8 @@
-<div class="card-header" align="center">Dogs Show</div><br>   
-<p>Find me in app/views/dogs/show.html.erb</p>
+<div class="card-header2" align="center">Dogs Show</div><br>   
+<div class="column">
+    <b> Name:</b> <%= @dog.name %> <br>
+    <b> Breed:</b> <%= @dog.breed %> <br>
+    <b> Walks Needed Daily:</b> <%= @dog.walks_needed %> <br>
+    <b> Owner's Name:</b> <%= @dog.owners_name%> <br>
+<a class="btn btn-primary btn-sm ml-1"href="<%= new_dog_walk_path(@dog) %>" role="button">Walk Dog</a>
+</div>

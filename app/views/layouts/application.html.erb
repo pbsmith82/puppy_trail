@@ -22,14 +22,23 @@
       PuppyTrails</a>
 <!-- div class="collapse navbar-collapse" id="navbarNav"-->
       <ul class="navbar-nav">
-      <% if session[:user_id] == nil%>
+      <% if !logged_in? %>
         <li class="nav-item">
           <a class="nav-link active" aria-current="page" href="<%= signup_path %>">Signup</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/login">Login</a>
+          <a class="nav-link" href="<%= login_path %>">Login</a>
         </li>
         <% else %>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= user_path(current_user.id) %>">Profile</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="<%= dogs_path %>">Dogs</a>
+        </li>
+         <li class="nav-item">
+          <a class="nav-link" href="<%= walks_path %>">Walks</a>
+        </li>
         <li class="nav-item">
           <a class="nav-link" href="<%= logout_path %>">Logout</a>
         </li>

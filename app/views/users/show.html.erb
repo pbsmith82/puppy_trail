@@ -1,10 +1,46 @@
 
-  <div class="card-header" align="center">User Show</div><br>    
-    <div class="column">
-        <b>First Name: </b><%= @user.first_name %><br>
-        <b>Last Name: </b><%= @user.last_name %> <br>
-        <b>Email: </b><%= @user.email %> <br>
-        <b>Age: </b><%= @user.age %> <br>
-        <b>Years Experience: </b><%= @user.years_experience %> <br>
-    </div>
+<div class="card-header" align="center"> User Show </div>
+<br>    
+<div class="column">
+  <b>First Name: </b><%= @user.first_name %><br>
+  <b>Last Name: </b><%= @user.last_name %> <br>
+  <b>Email: </b><%= @user.email %> <br>
+  <b>Age: </b><%= @user.age %> <br>
+  <b>Years Experience: </b><%= @user.years_experience %><br>
+  <br>
+  <a class="btn btn-primary" href="<%= edit_user_path(@user) %>" role="button">Edit User</a>
+  <br>
+  <br>
+</div>
+<div class="container">
+  <div class="card-header" align="center">Dogs Walked</div><br>
+  <div class="row row-cols-5"> 
+    <% @user.dogs.select do |dog| %>
+      <div class="card">
+        <div class="card-header"> <%= dog.name %> </div>
+        <b> Breed:</b> <%= dog.breed %>
+        <b> Daily Walks Needed:</b> <%= dog.walks_needed %>
+        <br>
+        <a class="btn btn-primary" href="<%= new_dog_walk_path(dog.id) %>" role="button">Walk Dog</a>
+        <br>
+      </div>
+    <% end%>
+  </div>
+  <br>
+  <br>
+  <div class="card-header" align="center">Dogs Owner</div><br>
+  <div class="row row-cols-5"> 
+    <% @user.owned_dogs.each do |dog| %>
+      <div class="card">
+        <div class="card-header"> <%= dog.name %> </div>
+        <b> Breed:</b> <%= dog.breed %>
+        <b> Daily Walks Needed:</b> <%= dog.walks_needed %>
+        <br>
+        <a class="btn btn-primary" href="<%= new_dog_walk_path(dog.id) %>" role="button">Walk Dog</a>
+        <br>
+      </div>
+    <% end%>
+  </div>
+</div>
 
+  

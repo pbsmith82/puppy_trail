@@ -1,2 +1,31 @@
-<div class="card-header" align="center">Walks New</div><br>   
-<p>Find me in app/views/walks/new.html.erb</p>
+<div class="card-header2" align="center">Walks New</div><br>   
+<div class="column">
+    <div class="card" style="width: 18rem;">
+    <div align="left">
+    <%= form_for(@walk) do |f|%>
+        <% if @dog %>
+        
+        <%else%>
+        <%= f.label "Dog" %><br>
+        <%= f.number_field name="dog_id"%><br>
+        <%end%>
+    
+        <%= f.label "Distance:" %><br>
+        <%= f.number_field name="distance"%> mile.<br>
+    
+    
+        <%= f.label "Was the dog fed:"%>
+        <%= f.check_box name="fed"%><br>
+    
+    
+        <%= f.label "Was the dog watered:"%>
+        <%= f.check_box name="watered"%><br>
+    
+        <br><%= f.submit "Walk the Dog"%>
+    
+    <%end%>
+    </div>
+    </div>
+
+    
+  </div>

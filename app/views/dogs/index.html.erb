@@ -1,2 +1,13 @@
-<div class="card-header" align="center">Dogs Index</div><br>    
-   
+<div class="card-header2" align="center">Dogs Index</div><br>    
+
+    <% @dogs.each do |dog| %>
+    <a class="btn btn-primary btn-sm ml-1"href="<%= new_dog_walk_path(dog.id) %>" role="button">Walk Dog</a>
+    <%= dog.name %>
+    
+    <b> Breed:</b> <%= dog.breed %>
+    <b> Daily Walks Needed:</b> <%= dog.walks_needed %>
+    
+    <br>
+    <br>
+    <% end%>
+    

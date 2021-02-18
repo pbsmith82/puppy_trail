@@ -16,6 +16,7 @@ ActiveRecord::Schema.define(version: 2021_02_13_231829) do
     t.string "name"
     t.string "breed"
     t.integer "walks_needed"
+    t.integer "owner_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -36,7 +37,7 @@ ActiveRecord::Schema.define(version: 2021_02_13_231829) do
   create_table "walks", force: :cascade do |t|
     t.integer "distance"
     t.boolean "fed"
-    t.integer "watered"
+    t.boolean "watered"
     t.integer "user_id"
     t.integer "dog_id"
     t.datetime "created_at", precision: 6, null: false

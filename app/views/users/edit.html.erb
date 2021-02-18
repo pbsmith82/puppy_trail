@@ -1,35 +1,35 @@
- <div class="card-header" align="center">User Show</div><br>
+ <div class="card-header2" align="center">User Show</div><br>
  <div class="column">
-    <div class="card">
-    <table>
+    <div class="card" style="width: 18rem;" >
+    <div align="left">
     <%= form_for(@user) do |f|%>
-    <tr>
-        <td align="right"><%= f.label "First Name:"%></td>
-        <td align="right"><%= f.text_field name="first_name"%></td>
-    </tr>
-    <tr>
-        <td align="right"><%= f.label "Last Name:"%></td>
-        <td align="right"><%= f.text_field name="last_name"%></td>
-    </tr>
-    <tr>
-        <td align="right"><%= f.label "Email:"%></td>
-        <td align="right"><%= f.email_field name="email"%></td>
-    </tr>
-    <tr>
-        <td align="right"><%= f.label "Age:"%></td>
-        <td align="right"><%= f.number_field name="age"%></td>
-    </tr>
-    <tr>
-        <td align="right"><%= f.label "Years Experience:"%></td>
-        <td align="right"><%= f.number_field name="years_experience"%></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td align="right"><br><%= f.submit "Update"%></td>
-    </tr>
+    
+        <%= f.label "First Name:" %><br>
+        <%= f.text_field name="first_name"%><br>
+    
+    
+        <%= f.label "Last Name:"%><br>
+        <%= f.text_field name="last_name"%><br>
+    
+    
+        <%= f.label "Email:"%><br>
+        <%= f.email_field name="email"%><br>
+    
+    
+        <%= f.label "Age:"%><br>
+        <%= f.number_field name="age"%><br>
+    
+    
+        <%= f.label "Years Experience:"%><br>
+        <%= f.number_field name="years_experience"%><br>
+    
+    
+        <td>
+        <br><%= f.submit "Update"%>
+    
     <%end%>
-    </table>
     </div>
+    </div>
+
     
   </div>
-</div>   
