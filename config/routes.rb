@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
  resources :dogs do 
-  resources :walks, only: [:index, :new]
+  resources :walks, only: [:index, :new, :create]
  end
  resources :users
  resources :walks

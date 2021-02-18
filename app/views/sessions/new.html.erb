@@ -1,7 +1,7 @@
 <!-- Content here -->
 
  
-<div class="row"> 
+<div class="row row-cols-2"> 
   <center><img src="<%= image_path("hello.png")%>"></center> 
  
   <div class="column">
@@ -12,7 +12,7 @@
 </ul>
   </div>
 <% end %>
-    <div class="card">
+    <div class="card" style="width: 20rem;">
     <table>
     <%= form_with(model: @user, url:'/login', local: true) do |f|%>
     <tr>
@@ -37,7 +37,7 @@
     </table>
     </div>
     <br>
-    <div class="card"> 
+    <div class="card" style="width: 20rem;"> 
     <div><img src="<%= image_path("GitHub-Mark-32px.png")%>"> <%= link_to 'Sign in with GitHub', '/auth/github'%>
     </div>
   </div>

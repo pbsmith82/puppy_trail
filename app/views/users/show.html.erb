@@ -36,7 +36,7 @@
         <b> Breed:</b> <%= dog.breed %>
         <b> Daily Walks Needed:</b> <%= dog.walks_needed %>
         <br>
-        <a class="btn btn-primary" href="<%= new_dog_walk_path(dog.id) %>" role="button">Walk Dog</a>
+        <a class="btn btn-primary" href="<%= edit_dog_path(dog.id) %>" role="button">Edit Dog</a>
         <br>
       </div>
     <% end%>

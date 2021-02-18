@@ -2,7 +2,7 @@
 <div class="column">
     <div class="card" style="width: 18rem;">
     <div align="left">
-    <%= form_for(@walk) do |f|%>
+    <%= form_for([@dog, @walk]) do |f|%>
         <% if @dog %>
         
         <%else%>
