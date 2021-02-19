@@ -21,13 +21,13 @@ class WalksController < ApplicationController
 
 
   def show
-    @walk = walk.find_by(id: params[:id])
+    @walk = Walk.find_by(id: params[:id])
   end
 
 
 
   def edit
-    @walk = walk.find_by(id: params[:id])
+    @walk = Walk.find_by(id: params[:id])
   end
 
 

@@ -1,23 +1,8 @@
-<div class="card-header2" align="center">Dogs New</div><br>   
+<div class="card-header" align="center">Dogs New</div><br>   
 <div class="column">
     <div class="card" style="width: 18rem;" >
     <div align="left">
-    <%= form_for(@dog) do |f|%>
-    
-        <%= f.label "Name:" %><br>
-        <%= f.text_field name="name"%><br>
-    
-    
-        <%= f.label "Breed:"%><br>
-        <%= f.text_field name="breed"%><br>
-    
-    
-        <%= f.label "Walks Needed Daily"%><br>
-        <%= f.number_field name="walks_needed"%><br>
-    
-        <br><%= f.submit "Create Dog"%>
-    
-    <%end%>
+    <%= render 'form'%>
     </div>
     </div>
 

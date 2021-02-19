@@ -1,13 +1,33 @@
-<div class="card-header2" align="center">Dogs Index</div><br>    
+<div class="card-header" align="center">Dogs Index</div><br>    
+  <div class="container">
+    <%= render 'menu'%>
+    <div class="container">
+     &nbsp; 
+    </div>
+    <div class="row row-cols-5"> 
+        <% @dogs.each do |dog| %>
+        <div class="card">
+            <div class="card-header"> <%= dog.name %> </div>
+            <b> Breed:</b> <%= dog.breed %>
+            <b> Daily Walks Needed:</b> <%= dog.walks_needed %>
+            <b> Dog Owner:</b> <%= dog.owners_name %>
+            <br>
+            <div class="card-footer">
+            <div class="d-grid gap-2 d-md-block">
+            <a class="btn btn-secondary btn-sm" href="<%= dog_walks_path(dog.id) %>" role="button">Walk Hx</a>
+            <a class="btn btn-success btn-sm" href="<%= new_dog_walk_path(dog.id) %>" role="button">Walk Dog</a>
+            </div>
+            </div>
+        </div>
+        <% end%>
+    </div>
+    <div class="container">
+     &nbsp; 
+    </div>
+  </div>
 
-    <% @dogs.each do |dog| %>
-    <a class="btn btn-primary btn-sm ml-1"href="<%= new_dog_walk_path(dog.id) %>" role="button">Walk Dog</a>
-    <%= dog.name %>
-    
-    <b> Breed:</b> <%= dog.breed %>
-    <b> Daily Walks Needed:</b> <%= dog.walks_needed %>
-    
-    <br>
-    <br>
-    <% end%>
+
+
+
+
     

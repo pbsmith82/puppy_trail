@@ -1,40 +1,37 @@
 <!-- Content here -->
-
  
 <div class="row row-cols-2"> 
-  <center><img src="<%= image_path("hello.png")%>"></center> 
- 
-  <div class="column">
+<div class="col">
+  <center><img src="<%= image_path("hello.png")%>" width="600" height="500"></center> 
+ </div>
+  <div class="col">
     <% flash.each do |type, msg| %>
-  <div class="errors">
-  <ul>
-    <li><%= msg %></li>
-</ul>
-  </div>
-<% end %>
+      <div class="invalid-error" style="width: 320px">
+        <ul>
+          <li><%= msg %></li>
+        </ul>
+      </div>
+    <% end %>
     <div class="card" style="width: 20rem;">
-    <table>
-    <%= form_with(model: @user, url:'/login', local: true) do |f|%>
-    <tr>
-        <td align="center" colspan="2"><h1>Local Login</h1></td>
-    </tr>
-    <tr>
-        <td align="center" colspan="2"><hr class="rounded"></td>
-    </tr>
-    <tr>
-        <td align="right"><%= f.label "Email:"%></td>
-        <td align="right"><%= f.email_field name="email"%></td>
-    </tr>
-    <tr>
-        <td align="right"><%= f.label "Password:"%></td>
-        <td align="right"><%= f.password_field name="password"%></td>
-    </tr>
-    <tr>
-        <td></td>
-        <td align="right"><br><%= f.submit "Login"%></td>
-    </tr>
-    <%end%>
-    </table>
+      <%= form_with(model: @user, url:'/login', local: true) do |f|%>
+    
+        <div class="card-header"><h1>Local Login</h1></div>
+        <%# <td align="center" colspan="2"><hr class="rounded"></td> %>
+        <div class="row align-items-start">
+          <div class="col"><br><%= f.label "Email:"%></div>
+          <div class="col"><br><%= f.email_field name="email"%></div>
+        </div>
+        <div class="row align-items-start">
+          <div class="col"><br><%= f.label "Password:"%></div>
+          <div class="col"><br><%= f.password_field name="password"%></div>
+        </div>
+        <div class="row align-items-start">
+          <div class="col"></div>
+          <div class="col" align="right"><br><%= f.submit "Login"%></div>
+        </div>
+
+      <%end%>
+    
     </div>
     <br>
     <div class="card" style="width: 20rem;"> 

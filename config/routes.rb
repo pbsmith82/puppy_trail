@@ -5,6 +5,7 @@ Rails.application.routes.draw do
  resources :users
  resources :walks
 
+ get '/dogs/needs_walked' => 'dogs#needs_walked'
  get '/login' => 'sessions#new'
  post '/login' => 'sessions#create'
  get '/signup' => 'users#new'

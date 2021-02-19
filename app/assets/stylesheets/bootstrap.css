@@ -2798,12 +2798,24 @@ textarea.form-control-lg {
 }
 
 .invalid-feedback {
-  display: none;
   width: 100%;
   margin-top: 0.25rem;
   font-size: 0.875em;
   color: #dc3545;
 }
+
+.invalid-error {
+  top: 100%;
+  z-index: 5;
+  max-width: 100%;
+  padding: 0.25rem 0.5rem;
+  margin-top: 0.1rem;
+  font-size: 0.875rem;
+  color: #fff;
+  background-color: rgba(220, 53, 69, 0.9);
+  border-radius: 0.25rem;
+}
+
 
 .invalid-tooltip {
   position: absolute;
@@ -10722,4 +10734,3 @@ textarea.form-control-lg {
   }
 }
 
-/* # sourceMappingURL=bootstrap.css.map */

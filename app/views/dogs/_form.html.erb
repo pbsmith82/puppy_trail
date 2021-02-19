@@ -1,0 +1,20 @@
+<%= form_for(@dog) do |f|%>
+    
+        <%= f.label "Name:" %><br>
+        <%= f.text_field name="name"%><br>
+    
+    
+        <%= f.label "Breed:"%><br>
+        <%= f.text_field name="breed"%><br>
+    
+    
+        <%= f.label "Walks Needed Daily"%><br>
+        <%= f.number_field name="walks_needed"%><br>
+
+        <% if @dog.id %>
+            <br><%= f.submit "Update"%>
+        <% else %>
+            <br><%= f.submit "Create Dog"%>
+        <%end%>
+    
+    <%end%>

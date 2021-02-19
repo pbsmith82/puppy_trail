@@ -8,5 +8,18 @@ class Dog < ApplicationRecord
       @user = User.find_by(id: owner_id)
       @name = @user.first_name + " " + @user.last_name
       @name
-    end     
+    end
+    
+    def self.walk_needed
+      @dogs =[]
+        Dog.all.each do |dog|
+            walked_today = dog.walks.where(created_at:(Time.now.utc - 1.day)..Time.now.utc)
+            if dog.walks_needed > walked_today.count
+                @dogs << dog
+            end
+        end
+      @dogs
+    end
+
+
 end

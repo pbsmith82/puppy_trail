@@ -1,5 +1,5 @@
 
-<div class="card-header" align="center"> User Show </div>
+<div class="card-header" align="center"> User Profile </div>
 <br>    
 <div class="column">
   <b>First Name: </b><%= @user.first_name %><br>
@@ -13,7 +13,12 @@
   <br>
 </div>
 <div class="container">
-  <div class="card-header" align="center">Dogs Walked</div><br>
+  <div class="row row-cols-2"> 
+  <div class="card-header" style="height:50px" align="left"><h2>Dogs Walked</h2> </div><div class="card-header" style="height:50px" align="right"><a class="btn btn-primary btn-sm" href="<%= dogs_needs_walked_path %>" role="button">Dogs Needing Walked</a></div><br>
+  </div> 
+  <div class="container">
+   &nbsp; 
+  </div>
   <div class="row row-cols-5"> 
     <% @user.dogs.select do |dog| %>
       <div class="card">
@@ -21,14 +26,23 @@
         <b> Breed:</b> <%= dog.breed %>
         <b> Daily Walks Needed:</b> <%= dog.walks_needed %>
         <br>
-        <a class="btn btn-primary" href="<%= new_dog_walk_path(dog.id) %>" role="button">Walk Dog</a>
-        <br>
+        <div class="card-footer">
+        <div class="d-grid gap-2 d-md-block">
+          <a class="btn btn-secondary btn-sm" href="<%= dog_walks_path(dog.id) %>" role="button">Walk Hx</a>
+          <a class="btn btn-success btn-sm" href="<%= new_dog_walk_path(dog.id) %>" role="button">Walk Dog</a>
+        </div>
+        </div>
       </div>
     <% end%>
   </div>
   <br>
   <br>
-  <div class="card-header" align="center">Dogs Owner</div><br>
+  <div class="row row-cols-2"> 
+  <div class="card-header" style="height:50px" align="left"><h2>Dogs Owned</h2> </div><div class="card-header" style="height:50px" align="right"><a class="btn btn-primary btn-sm" href="<%= new_dog_path %>" role="button">Add Dog</a></div><br>
+  </div> 
+  <div class="container">
+   &nbsp; 
+  </div>
   <div class="row row-cols-5"> 
     <% @user.owned_dogs.each do |dog| %>
       <div class="card">
@@ -36,8 +50,12 @@
         <b> Breed:</b> <%= dog.breed %>
         <b> Daily Walks Needed:</b> <%= dog.walks_needed %>
         <br>
-        <a class="btn btn-primary" href="<%= edit_dog_path(dog.id) %>" role="button">Edit Dog</a>
-        <br>
+        <div class="card-footer">
+        <div class="d-grid gap-2 d-md-block">
+          <a class="btn btn-secondary btn-sm" href="<%= dog_walks_path(dog.id) %>" role="button">Walk Hx</a>
+          <a class="btn btn-primary btn-sm" href="<%= edit_dog_path(dog.id) %>" role="button">Edit Dog</a>
+        </div>
+        </div>
       </div>
     <% end%>
   </div>

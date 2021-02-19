@@ -1,15 +1,23 @@
 class DogsController < ApplicationController
+
+
   def new
     @dog =  Dog.new
   end
+
+
 
   def index
     @dogs = Dog.all
   end
 
+
+
   def show
     @dog = Dog.find_by(id: params[:id])
   end
+
+
 
   def create
     @dog = current_user.owned_dogs.build(dog_params)
@@ -20,15 +28,30 @@ class DogsController < ApplicationController
     else
       render :new
     end
-
   end
+
+
 
   def edit
+    @dog = Dog.find_by(id: params[:id])
   end
+
+
 
   def update
+    @dog = Dog.find_by(id: params[:id])
+    @dog.update(dog_params)
+    redirect_to dog_path(@dog)
   end
 
+
+
+  def needs_walked
+    @dogs = Dog.walk_needed
+    render :index
+  end
+      
+  
 
   private
 
