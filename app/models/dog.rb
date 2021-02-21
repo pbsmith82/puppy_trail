@@ -7,6 +7,12 @@ class Dog < ApplicationRecord
 
     scope :ordered_by_breed, -> {order(breed: :asc)}
     
+
+    def owners_name
+      @user = User.find_by(id: owner_id)
+      @name = @user.first_name + " " + @user.last_name
+      @name
+    end
     
     def self.walk_needed
       @dogs =[]

@@ -1,6 +1,16 @@
 <div class="card-header" align="center">Dogs Index</div><br>    
   <div class="container">
-    <%= render 'menu'%>
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+            <a class="<%= all_dogs_active_nav %>" href="<%= dogs_path %>">All Dogs</a>
+        </li>
+        <li class="nav-item">
+            <a class="<%= needs_walked_active_nav%>" href="<%= dogs_needs_walked_path %>">Dogs Needing Walked</a>
+        </li>
+        <li class="nav-item">
+            <a class="<%= breeds_active_nav %>" href="<%= dogs_by_breeds_path %>">Dogs By Breeds</a>
+        </li>       
+    </ul>
     <div class="container">
      &nbsp; 
     </div>
