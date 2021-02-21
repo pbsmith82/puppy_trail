@@ -36,6 +36,7 @@
                                 <a class="btn btn-secondary btn-sm" href="<%= dog_walks_path(@dog) %>" role="button">Cancel</a>
                             <%else%>
                                 <a class="btn btn-secondary btn-sm" href="<%= dogs_path %>" role="button">Cancel</a>
+                                <a class="btn btn-danger btn-sm" href="delete" role="button">Delete</a>
                             <%end%>
                             <%= f.submit "Walk the Dog", :class => "btn btn-success btn-sm"%>
                         </div>

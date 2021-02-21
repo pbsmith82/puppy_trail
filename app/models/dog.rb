@@ -1,5 +1,5 @@
 class Dog < ApplicationRecord
-    has_many :walks
+    has_many :walks, :dependent => :destroy
     has_many :users, through: :walks
     belongs_to :owner, class_name: "User"
 

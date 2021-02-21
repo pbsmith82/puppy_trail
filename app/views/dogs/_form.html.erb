@@ -26,6 +26,8 @@
                             <a class="btn btn-secondary btn-sm" href="<%= user_path(current_user) %>" role="button">Cancel</a>
                             <% if @dog.id %>
                                 <%= f.submit "Update", :class => "btn btn-primary btn-sm"%>
+                                <a class="btn btn-danger btn-sm" href="delete" role="button">Delete</a>
+                              
                             <% else %>
                                 <%= f.submit "Create Dog", :class => "btn btn-primary btn-sm"%>
                             <%end%>

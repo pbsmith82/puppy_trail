@@ -1,5 +1,5 @@
 class WalksController < ApplicationController
-  before_action :require_user_access, only: [:edit, :update]
+  before_action :require_user_access, only: [:edit, :update, :destroy]
   
   
   def new
@@ -35,6 +35,11 @@ class WalksController < ApplicationController
     @dogs = Dog.dog_list
   end
 
+  def destroy 
+    walk = Walk.find_by(id: params[:id])
+    walk.destroy
+    redirect_to user_path(current_user)
+  end
 
 
   def create

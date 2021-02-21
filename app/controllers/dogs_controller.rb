@@ -1,5 +1,5 @@
 class DogsController < ApplicationController
-  before_action :require_user_access, only: [:edit, :update]
+  before_action :require_user_access, only: [:edit, :update, :destroy]
 
 
   def new
@@ -45,6 +45,13 @@ class DogsController < ApplicationController
 
   def edit
     @dog = Dog.find_by(id: params[:id])
+  end
+
+
+  def destroy 
+    dog = Dog.find_by(id: params[:id])
+    dog.destroy
+    redirect_to user_path(current_user)
   end
 
 

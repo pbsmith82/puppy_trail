@@ -8,8 +8,8 @@ Rails.application.routes.draw do
   resources :users
   resources :walks
 
- 
- 
+  get '/walks/:id/delete' => 'walks#destroy'
+  get '/dogs/:id/delete' => 'dogs#destroy'
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/signup' => 'users#new'
