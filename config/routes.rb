@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   get '/dogs/by_breeds' => 'dogs#by_breeds'
  
   resources :dogs do 
-  resources :walks, only: [:index, :new, :create]
+    resources :walks, only: [:index, :new, :create]
   end
+  
   resources :users
   resources :walks
 
