@@ -1,4 +1,5 @@
 class DogsController < ApplicationController
+  before_action :require_user_access, only: [:edit, :update]
 
 
   def new
@@ -9,6 +10,16 @@ class DogsController < ApplicationController
 
   def index
     @dogs = Dog.all
+  end
+
+  def needs_walked
+    @dogs = Dog.walk_needed
+    render :index
+  end
+
+  def by_breeds
+    @dogs = Dog.ordered_by_breed
+    render :index
   end
 
 
@@ -43,13 +54,6 @@ class DogsController < ApplicationController
     @dog.update(dog_params)
     redirect_to dog_path(@dog)
   end
-
-
-
-  def needs_walked
-    @dogs = Dog.walk_needed
-    render :index
-  end
       
   
 
@@ -57,6 +61,14 @@ class DogsController < ApplicationController
 
   def dog_params
     params.require(:dog).permit(:name, :breed, :walks_needed)
+  end
+
+  def require_user_access
+    dog = Dog.find_by(id: params[:id])
+    unless current_user.id == dog.owner.id
+      flash[:error] = "Sorry, Access Denied."
+      redirect_to user_path(current_user) 
+    end
   end
 
 end

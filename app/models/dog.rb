@@ -2,13 +2,11 @@ class Dog < ApplicationRecord
     has_many :walks
     has_many :users, through: :walks
     belongs_to :owner, class_name: "User"
-    
 
-    def owners_name
-      @user = User.find_by(id: owner_id)
-      @name = @user.first_name + " " + @user.last_name
-      @name
-    end
+    validates :name, :breed, :walks_needed, presence: true
+
+    scope :ordered_by_breed, -> {order(breed: :asc)}
+    
     
     def self.walk_needed
       @dogs =[]
@@ -19,6 +17,16 @@ class Dog < ApplicationRecord
             end
         end
       @dogs
+    end
+
+    def self.dog_list
+        @dogs = []
+
+        Dog.all.each do |dog|
+            @dog_info = [dog.name, dog.id]
+            @dogs << @dog_info
+        end
+        @dogs
     end
 
 

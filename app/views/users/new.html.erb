@@ -1,51 +1,44 @@
 
+
 <div class="row row-cols-2"> 
-<div class="col">
-  <center><img src="<%= image_path("hello.png")%>" width="600" height="500"></center> 
- </div>
- <div class="col">
-    <% flash.each do |type, msg| %>
-      <div class="form-control.is-invalid">
-        <ul>
-          <li><%= msg %></li>
-        </ul>
-      </div>
-    <% end %>
-    <div class="container">
-   &nbsp; 
-  </div>
-    <div class="card" style="width: 20rem;">
+    <div class="col">
+        <center><img src="<%= image_path("hello.png")%>" width="600" height="500"></center> 
+    </div>
+    <div class="col">
+        &nbsp;
+    <div class="card" style="width: 25rem;">
     <%= form_with(model: @user, url:'/signup', local: true) do |f|%>
     <div class="card-header"><h1>Local Signup</h1></div>
     <div class="row align-items-start">
-        <div class="col"><br><%= f.label "First Name:"%></div>
+        <div class="col" align="right"><br><%= f.label "First Name:"%></div>
         <div class="col"><br><%= f.text_field name="first_name"%></div>
     </div>
     <div class="row align-items-start">
-        <div class="col"><br><%= f.label "Last Name:"%></div>
+        <div class="col" align="right"><br><%= f.label "Last Name:"%></div>
         <div class="col"><br><%= f.text_field name="last_name"%></div>
     </div>
     <div class="row align-items-start">
-        <div class="col"><br><%= f.label "Email:"%></div>
+        <div class="col" align="right"><br><%= f.label "Email:"%></div>
         <div class="col"><br><%= f.email_field name="email"%></div>
     </div>
     <div class="row align-items-start">
-        <div class="col"><br><%= f.label "Password:"%></div>
+        <div class="col" align="right"><br><%= f.label "Password:"%></div>
         <div class="col"><br><%= f.password_field name="password"%></div>
     </div>
     <div class="row align-items-start">
-        <div class="col"><br><%= f.label "Age:"%></div>
-        <div class="col"><br><%= f.number_field name="age"%></div>
+        <div class="col" align="right"><br><%= f.label "Age:"%></div>
+        <div class="col"align="right"><br><%= f.number_field name="age", in: 18..100, step: 1, value: 18 %></div>
     </div>
     <div class="row align-items-start">
-        <div class="col"><br><%= f.label "Years Experience:"%></div>
-        <div class="col"><br><%= f.number_field name="years_experience"%></div>
+        <div class="col" align="right"><br><%= f.label "Years Experience:"%></div>
+        <div class="col" align="right"><br><%= f.number_field name="years_experience", in: 0..100, step: 1, value: 0%></div>
     </div>
+    <br>
     <div class="card-footer">
         <div class="col" align="right"><br><%= f.submit "Sign up"%></div>
     </div>
     <%end%>
   </div>
-    
+  </div>  
 </div>
 

@@ -1,8 +1,43 @@
-<div class="card-header2" align="center">Dogs Show</div><br>   
-<div class="column">
-    <b> Name:</b> <%= @dog.name %> <br>
-    <b> Breed:</b> <%= @dog.breed %> <br>
-    <b> Walks Needed Daily:</b> <%= @dog.walks_needed %> <br>
-    <b> Owner's Name:</b> <%= @dog.owners_name%> <br>
-<a class="btn btn-primary btn-sm ml-1"href="<%= new_dog_walk_path(@dog) %>" role="button">Walk Dog</a>
+<div class="card-header" align="center">Walk Details</div><br>   
+
+<div class="d-flex justify-content-center">
+    <%= render 'shared/error' %>
 </div>
+
+<div class="d-flex justify-content-center">
+    <div class="column">
+        <div class="card" style="width: 25rem;" >
+            <div class="card-header"><h1><%= @dog.name %>'s Details </h1></div>
+            <div align="right">
+                    
+                    <div class="row align-items-start">
+                        <div class="col" align="right"><br><b> Name:</b></div> 
+                        <div class="col-md-auto"><br><%= @dog.name %></div>
+                    </div>
+
+                    <div class="row align-items-start">
+                        <div class="col" align="right"><br><b> Breed:</b></div> 
+                        <div class="col-md-auto"><br><%= @dog.breed %></div>
+                    </div>
+
+                    <div class="row align-items-start">
+                        <div class="col" align="right"><br><b> Walks Needed Daily:</b></div> 
+                        <div class="col-md-auto"><br><%= @dog.walks_needed %></div>
+                    </div>
+
+                    <div class="row align-items-start">
+                        <div class="col" align="right"><br><b> Owner's Name:</b></div> 
+                        <div class="col-md-auto"><br><%= @dog.owners_name%></div>
+                    </div>
+
+                    <div class="card-footer">
+                        <div class="d-grid gap-2 d-md-block">
+                            <a class="btn btn-secondary btn-sm" href="<%= dog_walks_path(@dog.id) %>" role="button">Walk Hx</a>
+                            <a class="btn btn-success btn-sm" href="<%= new_dog_walk_path(@dog.id) %>" role="button">Walk Dog</a>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+

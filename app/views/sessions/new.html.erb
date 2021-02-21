@@ -1,17 +1,12 @@
 <!-- Content here -->
  
 <div class="row row-cols-2"> 
-<div class="col">
-  <center><img src="<%= image_path("hello.png")%>" width="600" height="500"></center> 
- </div>
   <div class="col">
-    <% flash.each do |type, msg| %>
-      <div class="invalid-error" style="width: 320px">
-        <ul>
-          <li><%= msg %></li>
-        </ul>
-      </div>
-    <% end %>
+    <center><img src="<%= image_path("hello.png")%>" width="600" height="500"></center> 
+  </div>
+  <div class="col">
+    <%= render 'shared/error' %>
+    <br>
     <div class="card" style="width: 20rem;">
       <%= form_with(model: @user, url:'/login', local: true) do |f|%>
     

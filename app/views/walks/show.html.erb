@@ -1,2 +1,42 @@
-<div class="card-header2" align="center">Walks Show</div><br>   
-<p>Find me in app/views/walks/show.html.erb</p>
+<div class="card-header" align="center">Walk Details</div><br>   
+
+<div class="d-flex justify-content-center">
+    <%= render 'shared/error' %>
+</div>
+
+<div class="d-flex justify-content-center">
+    <div class="column">
+        <div class="card" style="width: 25rem;" >
+            <div class="card-header"><h1><%= @walk.dog.name %> Walk Details </h1></div>
+            <div align="right">
+
+                <div class="row align-items-start">
+                    <div class="col" align="right"><br>Distance: (miles)</div>
+                    <div class="col-md-auto"><br><%= @walk.distance %></div>
+                </div>
+
+                <div class="row align-items-start">
+                    <div class="col" align="right"><br>Was the dog fed:</div>
+                    <div class="col-md-auto"><br><%= @walk.fed %></div>
+                </div>
+                
+                <div class="row align-items-start">
+                    <div class="col"><br>Was the dog watered:</div>
+                    <div class="col-md-auto"><br><%= @walk.watered %></div>
+                </div>
+                
+                <div class="card-footer">
+                    <div class="d-grid gap-2 d-md-block">
+                        <% if @walk.user != current_user %>
+                            <a class="btn btn-secondary btn-sm" href="<%= walks_path %>" role="button">Cancel</a>
+                        <%else%>
+                            <a class="btn btn-secondary btn-sm" href="<%= walks_path %>" role="button">Cancel</a>
+                            <a class="btn btn-success btn-sm" href="<%= edit_walk_path(@walk) %>" role="button">Update</a>
+                        <%end%>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

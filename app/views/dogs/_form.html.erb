@@ -1,20 +1,40 @@
-<%= form_for(@dog) do |f|%>
-    
-        <%= f.label "Name:" %><br>
-        <%= f.text_field name="name"%><br>
-    
-    
-        <%= f.label "Breed:"%><br>
-        <%= f.text_field name="breed"%><br>
-    
-    
-        <%= f.label "Walks Needed Daily"%><br>
-        <%= f.number_field name="walks_needed"%><br>
+<div class="d-flex justify-content-center">
+    <div class="column">
+        <div class="card" style="width: 25rem;" >
+            <div class="card-header"><h1><%= params[:action].capitalize%> Dog's Profile</h1></div>
+            <div align="right">
 
-        <% if @dog.id %>
-            <br><%= f.submit "Update"%>
-        <% else %>
-            <br><%= f.submit "Create Dog"%>
-        <%end%>
-    
-    <%end%>
+                <%= form_for(@dog) do |f|%>
+                    <div class="row align-items-start">    
+                        <div class="col" align="right"><br><%= f.label "Name:" %></div>
+                        <div class="col"><br><%= f.text_field name="name"%></div>
+                    </div>
+
+                    <div class="row align-items-start"> 
+                        <div class="col" align="right"><br><%= f.label "Breed:"%></div>
+                        <div class="col"><br><%= f.text_field name="breed"%></div>
+                    </div>
+
+                    <div class="row align-items-start"> 
+                        <div class="col" align="right"><br><%= f.label "Walks Needed:"%></div>
+                        <div class="col" align="left"><br><%= f.number_field name="walks_needed", in: 1..5, step: 1, value: 1%></div>
+                    </div>
+                    <br>
+
+                    <div class="card-footer">
+                        <div class="d-grid gap-2 d-md-block">
+                            <a class="btn btn-secondary btn-sm" href="<%= user_path(current_user) %>" role="button">Cancel</a>
+                            <% if @dog.id %>
+                                <%= f.submit "Update", :class => "btn btn-primary btn-sm"%>
+                            <% else %>
+                                <%= f.submit "Create Dog", :class => "btn btn-primary btn-sm"%>
+                            <%end%>
+                        </div>
+                    </div>
+
+                <%end%>
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+    skip_before_action :require_login, only: [:new, :omniauth, :create]
     
     
     def omniauth
@@ -16,7 +17,11 @@ class SessionsController < ApplicationController
 
 
     def new
-        @user=User.new
+        if logged_in? 
+            redirect_to user_path(current_user)
+        else
+            @user=User.new
+        end
     end
 
 
@@ -25,7 +30,7 @@ class SessionsController < ApplicationController
     def create
         user = User.find_by(email: params[:user][:email])
         
-            if user.valid? && !!user.authenticate(params[:user][:password]) 
+            if user && !!user.authenticate(params[:user][:password]) 
                 session[:user_id] = user.id
                 redirect_to user_path(user.id)
             else
@@ -47,10 +52,5 @@ class SessionsController < ApplicationController
 
     private
     
-
-
-    def auth
-        request.env['omniauth.auth']
-    end
 
   end

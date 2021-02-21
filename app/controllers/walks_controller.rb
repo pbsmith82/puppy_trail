@@ -1,11 +1,15 @@
 class WalksController < ApplicationController
-
+  before_action :require_user_access, only: [:edit, :update]
+  
+  
   def new
     if params[:dog_id] && @dog = Dog.find_by_id(params[:dog_id])
       #byebug
       @walk = @dog.walks.new
     else
+      @dogs = Dog.dog_list
       @walk = Walk.new
+      
     end  
   end
 
@@ -28,6 +32,7 @@ class WalksController < ApplicationController
 
   def edit
     @walk = Walk.find_by(id: params[:id])
+    @dogs = Dog.dog_list
   end
 
 
@@ -46,7 +51,7 @@ class WalksController < ApplicationController
 
 
   def update
-    @walk = walk.find_by(id: params[:id])
+    @walk = Walk.find_by(id: params[:id])
     @walk.update(walk_params)
     redirect_to walk_path(@walk)
   end
@@ -57,7 +62,12 @@ class WalksController < ApplicationController
     params.require(:walk).permit(:distance, :fed, :watered)
   end
 
-  
-
+  def require_user_access
+    walk = Walk.find_by(id: params[:id])
+    unless current_user.id == walk.user_id
+      flash[:error] = "Sorry, Access Denied."
+      redirect_to user_path(current_user) 
+    end
+  end
 
 end

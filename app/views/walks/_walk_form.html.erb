@@ -1,22 +1,48 @@
-<%= form_for([@dog, @walk]) do |f|%>
-        <% if @dog %>
-        
-        <%else%>
-        <%= f.label "Dog" %><br>
-        <%= f.number_field name="dog_id"%><br>
-        <%end%>
-    
-        <%= f.label "Distance:" %><br>
-        <%= f.number_field name="distance"%> mile.<br>
-    
-    
-        <%= f.label "Was the dog fed:"%>
-        <%= f.check_box name="fed"%><br>
-    
-    
-        <%= f.label "Was the dog watered:"%>
-        <%= f.check_box name="watered"%><br>
-    
-        <br><%= f.submit "Walk the Dog"%>
-    
-    <%end%>
+<div class="d-flex justify-content-center">
+    <div class="column">
+        <div class="card" style="width: 25rem;" >
+            <div class="card-header"><h1><%= params[:action].capitalize%> Walk</h1></div>
+            <div align="right">
+
+                <%= form_for([@dog, @walk]) do |f|%>
+                    <div class="row align-items-start"> 
+                        <% if @dog %>
+                            <div class="col" align="right"><br>Dog: </div>
+                            <div class="col-md-auto"><br><%= @dog.name %></div>
+                        <%else%>
+                            <div class="col" align="right"><br><%= f.label "Dog:" %></div>
+                            <div class="col-md-auto"><br><%= f.select :dog_id, @dogs %></div>
+                        <%end%>
+                    </div>
+
+                    <div class="row align-items-start">
+                        <div class="col" align="right"><br><%= f.label "Distance: (miles)" %></div>
+                        <div class="col-md-auto"><br><%= f.number_field name="distance", in: 1.0..20.0, step: 0.5, value: 1%> </div>
+                    </div>
+
+                    <div class="row align-items-start">
+                        <div class="col" align="right"><br><%= f.label "Was the dog fed:"%></div>
+                        <div class="col-md-auto"><br><%= f.check_box name="fed"%></div>
+                    </div>
+                    
+                    <div class="row align-items-start">
+                        <div class="col"><br><%= f.label "Was the dog watered:"%></div>
+                        <div class="col-md-auto"><br><%= f.check_box name="watered"%></div>
+                    </div>
+                    
+                    <div class="card-footer">
+                        <div class="d-grid gap-2 d-md-block">
+                            <% if @dog %>
+                                <a class="btn btn-secondary btn-sm" href="<%= dog_walks_path(@dog) %>" role="button">Cancel</a>
+                            <%else%>
+                                <a class="btn btn-secondary btn-sm" href="<%= dogs_path %>" role="button">Cancel</a>
+                            <%end%>
+                            <%= f.submit "Walk the Dog", :class => "btn btn-success btn-sm"%>
+                        </div>
+                    </div>
+                    
+                 <%end%>
+            </div>
+        </div>
+    </div>
+</div>
