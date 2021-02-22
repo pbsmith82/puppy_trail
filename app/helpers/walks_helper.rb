@@ -33,5 +33,18 @@ module WalksHelper
     end
         
 
+    def walk_form_header(f)
+        out = ''
+        if @dog
+            out << '<div class="col" align="right"><br>Dog: </div>'
+            out << '<div class="col-md-auto"><br>' + @dog.name + '</div>'
+        else
+            out << '<div class="col" align="right"><br>' + (f.label  'Dog:') + '</div>'
+            out << '<div class="col-md-auto"><br>' + (f.select :dog_id, @dogs) + '</div>'
+        end
+        #byebug
+        out.html_safe
+    end
+
 
 end
