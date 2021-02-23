@@ -25,6 +25,7 @@ module WalksHelper
             out << '<a class="btn btn-secondary btn-sm" href="' + dog_walks_path(@dog) +'" role="button">Cancel</a>'
         elsif
             @walk.id != nil
+            out << '<a class="btn btn-secondary btn-sm" href="' + dogs_path + '" role="button">Cancel</a> '
             out << '<a class="btn btn-danger btn-sm" href="delete" role="button">Delete</a>'
         else
             out << '<a class="btn btn-secondary btn-sm" href="' + dogs_path + '" role="button">Cancel</a>'
