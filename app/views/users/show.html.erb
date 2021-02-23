@@ -1,9 +1,11 @@
 
 <div class="card-header" align="center"> User Profile </div>
 <br>
+
 <div class="d-flex justify-content-center">
     <%= render 'shared/error' %>
-</div>    
+</div>  
+
 <div class="column">
   <b>First Name: </b><%= @user.first_name %><br>
   <b>Last Name: </b><%= @user.last_name %> <br>
@@ -15,13 +17,16 @@
   <br>
   <br>
 </div>
+
 <div class="container">
   <div class="row">
-  <div class="col-8" style="height:47px"> <h2>Dogs Walked</h2></div>
-  <div class="col-4" style="height:47px" align="right"> <a class="btn btn-primary btn-sm" href="<%= dogs_needs_walked_path %>" role="button">Dogs Needing Walked</a></div></div><br>
-  
-
-  
+    <div class="col-8" style="height:47px"> <h2>Dogs Walked</h2></div>
+    <div class="col-4" style="height:47px" align="right"> 
+      <a class="btn btn-primary btn-sm" href="<%= dogs_needs_walked_path %>" role="button">Dogs Needing Walked</a>
+    </div>
+  </div>
+  <br>
+    
   <div class="container">
    &nbsp; 
   </div>
