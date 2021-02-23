@@ -4,7 +4,7 @@ class WalksController < ApplicationController
   
   def new
     if params[:dog_id] && @dog = Dog.find_by_id(params[:dog_id])
-      #byebug
+     
       @walk = @dog.walks.new
     else
       @dogs = Dog.dog_list

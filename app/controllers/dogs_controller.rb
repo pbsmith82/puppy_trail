@@ -32,9 +32,9 @@ class DogsController < ApplicationController
 
   def create
     @dog = current_user.owned_dogs.build(dog_params)
-    # @dog = Dog.new(dog_params)
+    
     if @dog.save
-      # @dog.udpate(owner_id: session[:user_id])
+      
       redirect_to dog_path(@dog)
     else
       render :new
