@@ -72,7 +72,7 @@ class DogsController < ApplicationController
 
   def require_user_access
     dog = Dog.find_by(id: params[:id])
-    unless current_user.id == dog.owner.id
+    unless dog && current_user.id == dog.owner.id
       flash[:error] = "Sorry, Access Denied."
       redirect_to user_path(current_user) 
     end

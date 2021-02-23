@@ -69,7 +69,7 @@ class WalksController < ApplicationController
 
   def require_user_access
     walk = Walk.find_by(id: params[:id])
-    unless current_user.id == walk.user_id
+    unless walk && current_user.id == walk.user_id
       flash[:error] = "Sorry, Access Denied."
       redirect_to user_path(current_user) 
     end
