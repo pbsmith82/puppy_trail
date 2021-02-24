@@ -1,7 +1,7 @@
 <div class="card-header" align="center"> <%= walks_header(@dog) %> Walks </div><br>  
 <div class="container" align="left">
 
-    <a class="btn btn-success btn-sm" href="<%= walks_button(@dog)%>" role="button">Walk A Dog</a>
+    <a class="btn btn-success btn-sm" href="<%= walks_button(@dog)%>" role="button">Walk <%= walk_button_label(@dog) %></a>
 
 </div>
 

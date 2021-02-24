@@ -18,6 +18,14 @@ module WalksHelper
         end
     end
 
+    def walk_button_label(dog)
+        if dog
+            dog.name
+        else
+            "a dog"
+        end
+    end
+
     
     def walk_footer
         out = ''

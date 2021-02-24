@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get '/dogs/needs_walked' => 'dogs#needs_walked'
   get '/dogs/by_breeds' => 'dogs#by_breeds'
+  get '/walks/longest_walks' => 'walks#longest_walks'
  
   resources :dogs do 
     resources :walks, only: [:index, :new, :create]

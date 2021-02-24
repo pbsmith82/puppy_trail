@@ -17,7 +17,11 @@ class Walk < ApplicationRecord
     def dogs_name
         @dog = Dog.find_by(id: dog_id)
         @dog.name
-    end          
-      
+    end 
+    
+    def self.longestwalk
+         order(distance: :desc)
+
+    end
 
 end

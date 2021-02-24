@@ -28,7 +28,10 @@ class WalksController < ApplicationController
     @walk = Walk.find_by(id: params[:id])
   end
 
-
+  def longest_walks
+    @walks = Walk.longestwalk.limit(5)
+    render :index
+  end
 
   def edit
     @walk = Walk.find_by(id: params[:id])
